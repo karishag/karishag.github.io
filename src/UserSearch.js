@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import UserList from './UserList';
 import { debounce } from 'lodash';
 
-const TOKEN = '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',
-  DATA_FETCHER_DELAY = 500;
+const DATA_FETCHER_DELAY = 500;
 
 const SearchContainer = styled.div`
   display: flex;
@@ -30,9 +29,9 @@ const UserSearch = () => {
         // authenticated requests allows to do upto 30 requests per minute otherwise it limits to 10 requests per minute
         const response = await fetch(`https://api.github.com/search/users?q=${searchInput} in:name type:user sort:followers`, {
           method: 'GET',
-          headers: {
-            Authorization: `Bearer ${TOKEN}`
-          }
+          // headers: {
+          //   Authorization: `Bearer ${process.env.REACT_APP_AUTH_TOKEN}`
+          // }
         });
         if (!response.ok) {
           throw new Error('Network response was not OK');

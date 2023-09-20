@@ -7,6 +7,10 @@ const ErrorContainer = styled.div`
   flex-direction: column;
   margin: 30px 0px;
   align-items: center;
+
+  p {
+    margin-bottom: 6px;
+  }
 `,
   StyledTable = styled.div`
   display: flex;
@@ -53,7 +57,8 @@ const UserList = ({ users, showError }) => {
     return (
       <ErrorContainer>
         <ErrorImg style={{ height: 100, width: 100 }} />
-        <span>Try in sometime</span>
+        <p>Please try in sometime</p>
+        <span>Allowed only 10 requests per minute</span>
       </ErrorContainer>
     )
   }
